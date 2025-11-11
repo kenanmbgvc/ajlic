@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<title>NOVOŠPED d.o.o.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="LOGOsam.png">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+  }
+
+  header {
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .contacts {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    text-align: right;
+  }
+
+  .contacts a {
+    color: #666;
+    text-decoration: none;
+  }
+
+  .contacts a:hover {
+    text-decoration: underline;
+  }
+
+/* Navigacija */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #666666;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  ul li {
+    position: relative;
+  }
+
+  ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    background-color: #666666;
+    transition: background-color 0.3s;
+  }
+
+  ul li a:hover {
+    background-color: #333;
+  }
+
+  /* Dropdown meni sa animacijom */
+  ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #666666;
+    min-width: 180px;
+    z-index: 1000;
+  }
+
+  ul li:hover ul.dropdown {
+    display: block;
+  }
+
+  ul li ul.dropdown li {
+    width: 100%;
+  }
+
+  ul li ul.dropdown li a {
+    padding: 12px 16px;
+    background-color: #666666;
+    color: white;
+  }
+
+  ul li ul.dropdown li a:hover {
+    background-color: #444;
+  }
+
+  header::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Sekcija dobrodošlice */
+  .welcome-section {
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 20px 0;
+    border-radius: 8px;
+  }
+
+  .welcome-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .welcome-section p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Glavna slika */
+  .main-image {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .main-image img {
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  /* Galerija sponzora */
+  .sponsors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    max-width: 1000px;
+    margin: 20px auto 50px auto;
+  }
+
+  .sponsors a img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    filter: grayscale(100%);
+    transition: transform 0.3s, filter 0.3s ease-in-out;
+  }
+
+  .sponsors a img:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+  }
+
+  @media screen and (max-width: 768px) {
+  
+     header .top-bar {
+      padding: 10px 5px;
+    }
+
+    header img {
+      width: 100px;
+    }
+
+ .contacts {
+      font-size: 10px;
+    }
+
+    img {
+      width: 150px;
+    }
+
+    
+    ul {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    ul li {
+      width: 100%;
+    }
+    
+    .slider-container {
+      margin: 0;
+    }
+
+    /* Glavna slika */
+    .main-image img {
+      width: 100%;
+    }
+
+    /* Dobrodošlica tekst */
+    .welcome-section h2 {
+      font-size: 1.5em;
+    }
+
+    .welcome-section p {
+      font-size: 1em;
+      max-width: 90%;
+    }
+  }
+
+  /* Footer - Responzivan dizajn */
+  footer {
+    background-color: #000057;
+    color: white;
+    padding: 30px 20px;
+    margin-top: 40px;
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    max-width: 150px;
+    background-color: white;
+    padding: 10px;
+  }
+
+  .footer-info {
+    font-size: 14px;
+    color: white;
+  }
+
+  .footer-contact h4 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .footer-contact ul {
+    list-style: none;
+    padding: 0;
+    color: #ccc;
+  }
+
+  .footer-contact ul li {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+
+  .footer-contact ul li a {
+    color: #ccc;
+    text-decoration: none;
+  }
+
+  .footer-contact ul li a:hover {
+    color: #fff;
+  }
+
+  .footer-social {
+    margin-top: 10px;
+  }
+
+  .footer-social a {
+    color: #ccc;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  .footer-social a:hover {
+    color: #fff;
+  }
+
+  @media screen and (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    <img src="Logo.png" alt="Novosped logo">
+    <div class="contacts">
+      <strong style="font-size: 18px;">Kontakt:</strong><br>
+      📞 <a href="tel:+38735306500">+387 35 306 500</a><br>
+      📍 <a href="https://www.google.com/maps?q=Mitra+Trifunovića+Uče+161,+Tuzla,+Bosna+i+Hercegovina" target="_blank">
+        Mitra Trifunovića Uče do broja 161<br>
+        75000 TUZLA, BOSNA I HERCEGOVINA
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Navigacija -->
+<ul>
+  <li><a href="NOVOSPED.html">Početna</a></li>
+  <li><a href="onama.htm">O nama</a></li>
+  <li><a href="historija.htm">Historija</a></li>
+  <li>
+    <a href="logistika.htm">Logistika ▾</a>
+    <ul class="dropdown">
+      <a href="logistika.htm#transport">Transport</a>
+      <li><a href="logistika.htm#skladistenje">Skladištenje</a></li>
+      <li><a href="logistika.htm#carina">Carina</a></li>
+    </ul>
+  </li>
+  <li><a href="spedicija.htm">Špedicija</a></li>
+  <li><a href="kontakt.htm">Kontakt</a></li>
+</ul>
+
+<!-- Glavna slika iznad teksta -->
+<div class="main-image">
+  <img src="pocetna 3.jpg" alt="Novošped d.o.o. Tuzla">
+</div>
+
+<!-- Tekst dobrodošlice -->
+<section class="welcome-section">
+  <h2>Dobrodošli u Novošped d.o.o.,<br> Vaš partner za pametnu logistiku</h2>
+  <p>
+    Od 1991. godine smo kontinuirano razvijali naše poslovanje, tako da danas pružamo kompletnu logističku podršku našim klijentima uključujući poslove prijema, otpreme robe, skladištenje u carinsko skladište, organizaciju i vršenje transporta u domaćem i međunarodnom transportu, poreskom zastupanju, te pružanjem konsultantske pomoći prilikom sklapanja spoljnotrgovinskih ugovora.
+  </p>
+  <p>
+    Kao moderna uslužna tvrtka opredijelili smo se za kvalitetnu i savršenu uslugu. Vaš smo kompetentan partner kada je u pitanju pouzdana i pravovremena realizacija vaših logističkih projekata.
+  </p>
+  <p>
+    Novošped d.o.o. vidi sebe kao sveobuhvatnog pružatelja usluga za logistički sektor, koji nudi i realizuje mnogo više od konvencionalnih usluga. U potpunosti i u svakoj situaciji smo orijentirani ka klijentima.
+  </p>
+  <p>
+    Posjedujemo više od 30 godina iskustva u svim područjima špedicije, te smo uvijek korektan partner našim kupcima kojima nudimo svoje znanje i iskustvo po prihvatljivim uvjetima.
+  </p>
+  <p><strong>Čast i zadovoljstvo nam je istaknuti višegodišnju saradnju sa slijedećim renomiranim kompanijama:</strong></p>
+</section>
+
+<!-- Galerija sponzora -->
+<div class="sponsors">
+  <a href="https://lukavaccement.ba/hr/" target="_blank">
+    <img src="Cement-Lukavac.jpg" alt="Lukavac Cement">
+  </a>
+  <a href="https://tuzla-airport.ba/" target="_blank">
+    <img src="Tuzla International Airport.png" alt="Međunarodni aerodrom Tuzla">
+  </a>
+  <a href="https://unistok.ba/" target="_blank">
+    <img src="Unis-Tok.jpg" alt="Unis Tok d.o.o. Kalesija">
+  </a>
+  <a href="https://www.companywall.ba/firma/aft-bosnia-doo-zivinice/MMx8oFFR" target="_blank">
+    <img src="AFT-Bosnia.jpg" alt="AFT Bosnia Živinice">
+  </a>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="Logo.png" alt="Novošped Logo">
+    </div>
+
+    <div class="footer-info">
+      <p>&copy; 2025 Novošped d.o.o. Tuzla. Sva prava zadržana.</p>
+      <p>Usluge: Carinsko posredovanje, Transport, Skladištenje</p>
+    </div>
+
+    <div class="footer-contact">
+      <div class="contacts" style="color: white;">
+        <strong>Kontakt:</strong><br>
+        📞 <a href="tel:+38735306500" style="color: white;">+387 35 306 500</a><br>
+        📍 <a href="https://www.google.com/maps?q=Mitra+Trifunovića+Uče+161,+Tuzla,+Bosna+i+Hercegovina" target="_blank" style="color: white;">
+          Mitra Trifunovića Uče do broja 161<br>
+          75000 TUZLA, BOSNA I HERCEGOVINA
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://facebook.com/novosped" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://linkedin.com/company/novosped" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://twitter.com/novosped" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com/novosped" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Dodavanje FontAwesome ikona -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+</html>

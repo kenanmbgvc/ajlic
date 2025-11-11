@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Novošped d.o.o. | Historija</title>
+<link rel="icon" type="image/png" href="LOGOsam.png">
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    
+  }
+
+  header {
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    margin: 0;
+    padding: 20px;
+  }
+
+ img {
+    width: 200px;
+    height: auto;
+  }
+
+  .contacts {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    text-align: right;
+  }
+
+  .contacts a {
+    color: #555;
+    text-decoration: none;
+  }
+
+  .contacts a:hover {
+    text-decoration: underline;
+  }
+
+  /* Navigacija */
+  ul {
+    list-style: none;
+    background-color: #666;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li {
+    position: relative;
+  }
+
+  ul li a {
+    display: block;
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  ul li a:hover {
+    background-color: #333;
+  }
+  
+   /* Dropdown meni sa animacijom */
+  ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    text-align: center;
+    top: 100%;
+    left: 0;
+    background-color: #666666;
+    min-width: 180px;
+    z-index: 1000;
+  }
+
+  ul li:hover ul.dropdown {
+    display: block;
+  }
+
+  ul li ul.dropdown li {
+    width: 100%;
+  }
+
+  ul li ul.dropdown li a {
+    padding: 12px 16px;
+    background-color: #666666;
+    color: white;
+  }
+
+  ul li ul.dropdown li a:hover {
+    background-color: #444;
+  }
+
+  header::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+  /* Naslov i uvod */
+  .history-intro {
+    text-align: center;
+    padding: 50px 20px 30px 20px;
+    background: #f4f4f4;
+    animation: fadeIn 1.2s ease-out forwards;
+  }
+
+  .history-intro h1 {
+    font-size: 2.2em;
+    color: #222;
+    margin-bottom: 10px;
+  }
+
+  .history-intro p {
+    max-width: 900px;
+    margin: 15px auto;
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Timeline sekcija */
+  .timeline {
+    position: relative;
+    max-width: 1300px;
+    height: auto;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #666;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    opacity: 0.6;
+  }
+
+  .timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.8s ease forwards;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  /* Efekat zoom-in i sjene kad se pređe mišem */
+  .timeline-item:hover {
+    transform: scale(1.05);
+    z-index: 3;
+  }
+
+  .timeline-item:hover .timeline-content {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+
+  .timeline-item.left {
+    left: 0;
+  }
+
+  .timeline-item.right {
+    left: 50%;
+  }
+
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    right: -9px;
+    background-color: white;
+    border: 3px solid #666;
+    top: 25px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .timeline-item.right::after {
+    left: -9px;
+  }
+
+  .timeline-content {
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.4s ease;
+  }
+
+  .timeline-content h3 {
+    color: #333;
+    margin-top: 0;
+  }
+
+  .timeline-content p {
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /*Godina  */
+  .timeline-content .year {
+    font-weight: bold;
+    color: #003366;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  /* Slike */
+  .history-images {
+    text-align: center;
+    margin: 60px auto 80px auto;
+    max-width: 1000px;
+    animation: fadeIn 1.5s ease-out forwards;
+  }
+
+  .history-images img {
+    width: 45%;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    transition: transform 0.4s;
+  }
+
+  .history-images img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Animacije */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #e0e0e0;
+    color: #333;
+    font-size: 0.9em;
+  }
+
+  footer {
+    background-color: #000057;
+    color: white;
+    padding: 30px 20px;
+    margin-top: 40px;
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    max-width: 150px;
+    background-color: white;
+    padding: 10px;
+  }
+
+  .footer-info {
+    font-size: 14px;
+    color: white;
+  }
+
+  .footer-contact h4 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .footer-contact ul {
+    list-style: none;
+    padding: 0;
+    color: #ccc;
+  }
+
+  .footer-contact ul li {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+
+  .footer-contact ul li a {
+    color: #ccc;
+    text-decoration: none;
+  }
+
+  .footer-contact ul li a:hover {
+    color: #fff;
+  }
+
+  .footer-social {
+    margin-top: 10px;
+  }
+
+  .footer-social a {
+    color: #ccc;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  .footer-social a:hover {
+    color: #fff;
+  }
+
+  /* Media Queries for Responsiveness */
+  @media screen and (max-width: 768px) {
+
+     header .top-bar {
+      padding: 10px 5px;
+    }
+
+    header img {
+      width: 100px;
+    }
+
+ .contacts {
+      font-size: 10px;
+    }
+
+    img {
+      width: 150px;
+    }
+
+    ul {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    ul li {
+      width: 100%;
+      align-items: center;
+    }
+
+     .timeline::after {
+      left: 30px;
+    }
+
+    .timeline-item {
+      width: 80%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+
+    .timeline-item.right {
+      left: 0%;
+    }
+
+    .timeline-item::after {
+      left: 15px;
+    }
+
+    .history-images img {
+      width: 90%;
+    }
+
+    .footer-container {
+      flex-direction: column;
+    }
+
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <header>
+    <div class="top-bar">
+      <img src="Logo.png" alt="Novosped logo">
+      <div class="contacts">
+        <strong style="font-size: 18px;">Kontakt:</strong><br>
+        📞 <a href="tel:+38735306500">+387 35 306 500</a><br>
+        📍 <a href="https://www.google.com/maps?q=Mitra+Trifunovića+Uče+161,+Tuzla,+Bosna+i+Hercegovina" target="_blank">
+          Mitra Trifunovića Uče do broja 161<br>
+          75000 TUZLA, BOSNA I HERCEGOVINA
+        </a>
+      </div>
+    </div>
+  </header>
+  <ul>
+    <li><a href="NOVOSPED.html">Početna</a></li>
+    <li><a href="onama.htm">O nama</a></li>
+    <li><a href="historija.htm" class="active">Historija</a></li>
+    <li>
+      <a href="logistika.htm">Logistika ▾</a>
+      <ul class="dropdown">
+        <li><a href="#transport">Transport</a></li>
+        <li><a href="#skladistenje">Skladištenje</a></li>
+        <li><a href="#carina">Carina</a></li>
+      </ul>
+    </li>
+    <li><a href="spedicija.htm">Špedicija</a></li>
+    <li><a href="kontakt.htm">Kontakt</a></li>
+  </ul>
+
+  <section class="history-intro">
+    <h1>Više od 30 godina iskustva u špediciji</h1>
+    <p>Novošped d.o.o. je aktivan učesnik na tržištu logističkog sektora od 1991. godine. Tokom tri decenije poslovanja, preduzeće je prošlo kroz brojne faze rasta, modernizacije i širenja poslovanja, što je oblikovalo našu poziciju kao jednog od vodećih pružalaca logističkih usluga u Bosni i Hercegovini.</p>
+  </section>
+
+  <div class="timeline">
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <div class="year">1991</div>
+        <h3>Osnivanje Novošped d.o.o.</h3>
+        <p>Osnivanje preduzeća Novošped sa sjedištem u Tuzli od strane gospodina Mirsada Kurbašića.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <div class="year">1995</div>
+        <h3>Širenje u Srebreniku</h3>
+        <p>Osnivanje poslovne jedinice u Srebreniku, čime se pruža podrška privredi Tuzlanskog kantona.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <div class="year">1996</div>
+        <h3>Poslovna jedinica Izačić – Bihać</h3>
+        <p>Otvorena nova poslovna jedinica na GP Izačić, pionirski doprinos razvoju carinskog sistema.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <div class="year">2003</div>
+        <h3>Izgradnja nove poslovne zgrade</h3>
+        <p>Novošped gradi savremenu administrativnu zgradu i unapređuje infrastrukturu.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <div class="year">2009</div>
+        <h3>Novi carinski terminal u Tuzli</h3>
+        <p>Počinje rad novoizgrađenog carinskog terminala i preseljenje u nove kancelarije.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <div class="year">2017</div>
+        <h3>Osnivanje PJ Dubrave i Robni terminal Tuzla</h3>
+        <p>Razvoj aerodroma Tuzla i širenje poslovanja na nove lokacije.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <div class="year">2023</div>
+        <h3>Modernizacija i digitalizacija</h3>
+        <p>Obnova odobrenja za carinsko skladište i implementacija elektronskog poslovanja i NTCS sistema.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="history-images">
+    <img src="historija.jpg" alt="Novošped skladište">
+    <img src="historija2.jpg" alt="Novošped historijat">
+  </div>
+
+    
+  <footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="Logo.png" alt="Novošped Logo">
+    </div>
+    
+    <div class="footer-info">
+      <p>&copy; 2025 Novošped d.o.o. Tuzla. Sva prava zadržana.</p>
+      <p>Usluge: Carinsko posredovanje, Transport, Skladištenje</p>
+    </div>
+    
+    <div class="footer-contact">
+      <div class="contacts" style="color: white;">
+        <strong>Kontakt:</strong><br>
+        📞 <a href="tel:+38735306500" style="color: white;">+387 35 306 500</a><br>
+        📍 <a href="https://www.google.com/maps?q=Mitra+Trifunovića+Uče+161,+Tuzla,+Bosna+i+Hercegovina" target="_blank" style="color: white;">
+          Mitra Trifunovića Uče do broja 161<br>
+          75000 TUZLA, BOSNA I HERCEGOVINA
+        </a>
+    </div>
+    
+    <div class="footer-social">
+      <a href="https://facebook.com/novosped" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://linkedin.com/company/novosped" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://twitter.com/novosped" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com/novosped" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Dodavanje FontAwesome ikona -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+
+
+</body>
+</html>
